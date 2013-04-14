@@ -1,0 +1,19 @@
+{
+    "name": "vincet/bootstrap-form-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony VinceTBootstrapFormBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vincent Touzet",
+            "email": "vincent.touzet@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-0": { "VinceT\\BootstrapFormBundle": "" }
+    },
+    "target-dir": "VinceT/BootstrapFormBundle"
+}

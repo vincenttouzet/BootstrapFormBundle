@@ -1,0 +1,28 @@
+{% block bootstrap_datepicker_widget %}
+    <div class="input-append date bootstrap-datepicker" id="dp3" data-date="{{ value }}" data-date-format="yyyy-mm-dd">
+        {% spaceless %}
+            <input type="text" {{ block('widget_attributes') }} 
+            {% if value is not empty %}value="{{ value }}" {% endif %}
+            data-week-start="{{ week_start }}"
+            data-view-mode="{{ view_mode }}"
+            data-min-view-mode="{{ min_view_mode }}"
+            />
+        {% endspaceless %}
+        <span class="add-on"><i class="icon-th"></i></span>
+    </div>
+{% endblock %}
+
+{% block bootstrap_timepicker_widget %}
+    <div class="input-append bootstrap-timepicker">
+        {% spaceless %}
+            <input type="text" {{ block('widget_attributes') }} 
+            {% if value is not empty %}value="{{ value }}" {% endif %}
+            data-minute-step="{{ minute_step }}"
+            data-second-step="{{ second_step }}"
+            {% if disable_focus %}data-disable-focus="{{ disable_focus }}" {% endif %}
+            {% if with_seconds %}data-show-seconds="{{ with_seconds }}" {% endif %}
+            />
+        {% endspaceless %}
+        <span class="add-on"><i class="icon-time"></i></span>
+    </div>
+{% endblock %}
