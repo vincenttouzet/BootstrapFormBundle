@@ -10,26 +10,6 @@ class DemoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            /*->add('demoInt', null, array('label'=>'form.label_demo_int', 'translation_domain'=>'VinceTDemoBundleDemo'))
-            ->add('demoBoolean', null, array('label'=>'form.label_demo_boolean', 'translation_domain'=>'VinceTDemoBundleDemo'))
-            ->add('demoString', null, array('label'=>'form.label_demo_string', 'translation_domain'=>'VinceTDemoBundleDemo'))
-            ->add('demoText', null, array('label'=>'form.label_demo_text', 'translation_domain'=>'VinceTDemoBundleDemo'))
-            ->add('demoDatetime', null, array('label'=>'form.label_demo_datetime', 'translation_domain'=>'VinceTDemoBundleDemo'))*/
-            ->add(
-                'demoDate', 
-                'bootstrap_datepicker', 
-                array(
-                    'label'=>'form.label_demo_date', 
-                    'translation_domain'=>'VinceTDemoBundleDemo', 
-                    'required'=>false, 
-                    /* day of the week start. 0 for Sunday - 6 for Saturday */
-                    'week_start'=>0, 
-                    /* set the start view mode. Accepts: 'days', 'months', 'years', 0 for days, 1 for months and 2 for years */
-                    'view_mode'=>'days',
-                    /* set a limit for view mode. Accepts: 'days', 'months', 'years', 0 for days, 1 for months and 2 for years */
-                    'min_view_mode'=>'days'
-                )
-            )
             ->add(
                 'demoTime', 
                 'bootstrap_timepicker', 
@@ -47,15 +27,25 @@ class DemoType extends AbstractType
                     'disable_focus'=>true,
                 )
             )
-            /*->add('demoDecimal', null, array('label'=>'form.label_demo_decimal', 'translation_domain'=>'VinceTDemoBundleDemo'))
-            ->add('demoFloat', null, array('label'=>'form.label_demo_float', 'translation_domain'=>'VinceTDemoBundleDemo'))
-            ->add('demoArray', null, array('label'=>'form.label_demo_array', 'translation_domain'=>'VinceTDemoBundleDemo'))
-            ->add('demoObject', null, array('label'=>'form.label_demo_object', 'translation_domain'=>'VinceTDemoBundleDemo'))
-            ->add('demoJson', null, array('label'=>'form.label_demo_json', 'translation_domain'=>'VinceTDemoBundleDemo'))
-            ->add('demoDateTimeZ', null, array('label'=>'form.label_demo_date_time_z', 'translation_domain'=>'VinceTDemoBundleDemo'))*/
         ;
     }
 }
+```
+
+Include stylesheets and javascripts:
+```twig
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/css/bootstrap-timepicker.min.css')}}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{asset('bundles/vincetbootstrapform/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('bundles/vincetbootstrapform/js/bootstrap-timepicker.js')}}"></script>
+    <script src="{{asset('bundles/vincetbootstrapform/js/bootstrap-forms.js')}}"></script>
+{% endblock %}
 ```
 
 [1]: http://jdewit.github.io/bootstrap-timepicker/

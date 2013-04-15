@@ -19,7 +19,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 
 /**
- * DatePickerType
+ * TimePickerType
  *
  * @category VinceT
  * @package  VinceTBootstrapFormBundle

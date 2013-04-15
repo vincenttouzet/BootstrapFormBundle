@@ -7,3 +7,7 @@ services:
         class: VinceT\BootstrapFormBundle\Form\Type\TimePickerType
         tags:
             - { name: form.type, alias: bootstrap_timepicker }
+    vincet.bootstrapform.form.type.datetimepicker:
+        class: VinceT\BootstrapFormBundle\Form\Type\DateTimePickerType
+        tags:
+            - { name: form.type, alias: bootstrap_datetimepicker }
