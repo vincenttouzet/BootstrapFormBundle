@@ -1,5 +1,5 @@
 {% block bootstrap_datepicker_widget %}
-    <div class="input-append date bootstrap-datepicker" id="dp3" data-date="{{ value }}" data-date-format="yyyy-mm-dd">
+    <div class="input-append date bootstrap-datepicker" data-date="{{ value }}" data-date-format="yyyy-mm-dd">
         {% spaceless %}
             <input type="text" {{ block('widget_attributes') }} 
             {% if value is not empty %}value="{{ value }}" {% endif %}
