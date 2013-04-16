@@ -26,3 +26,17 @@
         <span class="add-on"><i class="icon-time"></i></span>
     </div>
 {% endblock %}
+
+{% block bootstrap_email_widget %}
+    <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope"></i></span>
+        {{ block('form_widget_simple') }}
+    </div>
+{% endblock %}
+
+{% block bootstrap_percent_widget %}
+    <div class="input-append">
+        {{ block('form_widget_simple') }}
+        <span class="add-on">%</span>
+    </div>
+{% endblock %}

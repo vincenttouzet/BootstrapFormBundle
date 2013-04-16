@@ -11,3 +11,11 @@ services:
         class: VinceT\BootstrapFormBundle\Form\Type\DateTimePickerType
         tags:
             - { name: form.type, alias: bootstrap_datetimepicker }
+    vincet.bootstrapform.form.type.email:
+        class: VinceT\BootstrapFormBundle\Form\Type\EmailType
+        tags:
+            - { name: form.type, alias: bootstrap_email }
+    vincet.bootstrapform.form.type.percent:
+        class: VinceT\BootstrapFormBundle\Form\Type\PercentType
+        tags:
+            - { name: form.type, alias: bootstrap_percent }
