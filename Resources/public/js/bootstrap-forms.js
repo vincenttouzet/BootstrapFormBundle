@@ -24,5 +24,37 @@
                 defaultTime: false
             });
         });
+        /**
+         * TimePicker
+         */
+        $('.bootstrap-daterangepicker input').each(function(){
+            var $input = $(this);
+            var opens = $input.data('opens');
+            var separator = $input.data('separator');
+            var showWeekNumbers = $input.data('show-week-numbers');
+            var showDropdowns = $input.data('show-dropdowns');
+            var minDate = $input.data('min-date');
+            var maxDate = $input.data('max-date');
+            var dateLimit = $input.data('date-limit');
+            var ranges = $input.data('ranges');
+            var locale = $input.data('locale');
+
+            var options = {
+                format: 'yyyy-MM-dd',
+                opens: opens,
+                separator: separator,
+                showWeekNumbers: showWeekNumbers,
+                showDropdowns: showDropdowns,
+                minDate: minDate,
+                maxDate: maxDate,
+                dateLimit: dateLimit,
+                locale: locale
+            };
+            if ( ranges ) {
+                options.ranges = ranges;
+            }
+            console.log(locale);
+            $input.daterangepicker(options);
+        });
     });
 })(jQuery);

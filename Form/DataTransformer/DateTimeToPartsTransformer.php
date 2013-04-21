@@ -15,7 +15,7 @@ use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
 
 /**
- * This file is part of VinceTBootstrapFormBundle for Symfony2
+ * DateTimeToPartsTransformer
  *
  * @category VinceT
  * @package  VinceTBootstrapFormBundle
@@ -27,13 +27,11 @@ class DateTimeToPartsTransformer implements DataTransformerInterface
 {
 
     /**
-     * Transforms a string into a DateTime.
+     * Transforms a DateTime into an array.
      *
-     * @param string $value String value.
+     * @param DateTime $value DateTime value.
      *
-     * @return DateTime DateTime value.
-     *
-     * @throws UnexpectedTypeException if the given value is not a string
+     * @return string string value.
      */
     public function transform($value)
     {
@@ -49,13 +47,11 @@ class DateTimeToPartsTransformer implements DataTransformerInterface
     }
 
     /**
-     * Transforms a DateTime into a string.
+     * Transforms an array into a DateTime.
      *
-     * @param DateTime $value DateTime value.
+     * @param array $value Array value.
      *
-     * @return string String value.
-     *
-     * @throws UnexpectedTypeException if the given value is not a DateTime
+     * @return DateTime DateTime value.
      */
     public function reverseTransform($value)
     {
