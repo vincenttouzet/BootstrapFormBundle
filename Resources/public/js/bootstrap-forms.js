@@ -25,7 +25,7 @@
             });
         });
         /**
-         * TimePicker
+         * DateRangePicker
          */
         $('.bootstrap-daterangepicker input').each(function(){
             var $input = $(this);
@@ -56,5 +56,11 @@
             console.log(locale);
             $input.daterangepicker(options);
         });
+        /**
+         * ColorPicker
+         */
+        $('.bootstrap-colorpicker').each(function(){
+            $(this).colorpicker();
+        })
     });
 })(jQuery);

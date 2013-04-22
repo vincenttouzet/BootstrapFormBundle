@@ -60,3 +60,12 @@
         <span class="add-on">%</span>
     </div>
 {% endblock %}
+
+{% block bootstrap_colorpicker_widget %}
+    <div class="input-append bootstrap-colorpicker color" data-color="{{ value }}" data-color-format="{{ format }}">
+        {{ block('form_widget_simple') }}
+        <span class="add-on">
+            <i {% if value %}style="background-color: {{ value }}"{% endif %}></i>
+        </span>
+    </div>
+{% endblock %}
