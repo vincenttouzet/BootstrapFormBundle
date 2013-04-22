@@ -9,6 +9,7 @@ This bundle adds the following form Type:
 * [**Email**][5]
 * [**Percent**][6]
 * [**DateRangePicker**][7]
+* [**ColorPicker**][8]
 
 See how to [**install**][3]
 
@@ -19,3 +20,4 @@ See how to [**install**][3]
 [5]: Resources/doc/02-Email.md
 [6]: Resources/doc/02-Percent.md
 [7]: Resources/doc/02-DateRangePicker.md
+[8]: Resources/doc/02-ColorPicker.md
