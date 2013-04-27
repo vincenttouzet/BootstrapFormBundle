@@ -19,6 +19,10 @@ services:
         class: VinceT\BootstrapFormBundle\Form\Type\PercentType
         tags:
             - { name: form.type, alias: bootstrap_percent }
+    vincet.bootstrapform.form.type.money:
+        class: VinceT\BootstrapFormBundle\Form\Type\MoneyType
+        tags:
+            - { name: form.type, alias: bootstrap_money }
     vincet.bootstrapform.form.type.daterangepicker:
         class: VinceT\BootstrapFormBundle\Form\Type\DateRangePickerType
         tags:
