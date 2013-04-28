@@ -8,6 +8,7 @@ This bundle adds the following form Type:
 * [**DateTimePicker**][4]
 * [**Email**][5]
 * [**Percent**][6]
+* [**Money**][9]
 * [**DateRangePicker**][7]
 * [**ColorPicker**][8]
 
@@ -21,3 +22,4 @@ See how to [**install**][3]
 [6]: Resources/doc/02-Percent.md
 [7]: Resources/doc/02-DateRangePicker.md
 [8]: Resources/doc/02-ColorPicker.md
+[9]: Resources/doc/02-Money.md

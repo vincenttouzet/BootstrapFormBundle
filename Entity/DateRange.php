@@ -59,9 +59,22 @@ class DateRange
     }
 
     /**
+     * Gets the interval between the two dates
+     *
+     * @return DateInterval
+     */
+    public function getDateInterval()
+    {
+        if ( !$this->from && !$this->to ) {
+            return null;
+        }
+        return $this->from->diff($this->to);
+    }
+
+    /**
      * Gets From
      * 
-     * @return [type]
+     * @return DateTime
      */
     public function getFrom()
     {
@@ -71,9 +84,9 @@ class DateRange
     /**
      * Sets From
      * 
-     * @param [type] $from From
+     * @param DateTime $from From
      * 
-     * @return [type]
+     * @return VinceT\BootstrapFormBundle\Entity\DateRange
      */
     public function setFrom($from)
     {
@@ -84,7 +97,7 @@ class DateRange
     /**
      * Gets To
      * 
-     * @return [type]
+     * @return DateTime
      */
     public function getTo()
     {
@@ -94,9 +107,9 @@ class DateRange
     /**
      * Sets To
      * 
-     * @param [type] $to To
+     * @param DateTime $to To
      * 
-     * @return [type]
+     * @return VinceT\BootstrapFormBundle\Entity\DateRange
      */
     public function setTo($to)
     {
