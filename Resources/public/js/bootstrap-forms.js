@@ -8,8 +8,9 @@
             var week_start = $input.data('week-start');
             var view_mode = $input.data('view-mode');
             var min_view_mode = $input.data('min-view-mode');
+            var format = $input.data('format');
             $(this).datepicker({
-                format: 'yyyy-mm-dd',
+                format: format,
                 weekStart: week_start,
                 viewMode: view_mode,
                 minViewMode: min_view_mode
