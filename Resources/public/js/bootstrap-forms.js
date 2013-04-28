@@ -63,5 +63,11 @@
         $('.bootstrap-colorpicker').each(function(){
             $(this).colorpicker();
         })
+        /**
+         * ColorPicker
+         */
+        $('.bootstrap-slider').each(function(){
+            $(this).slider();
+        })
     });
 })(jQuery);

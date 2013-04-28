@@ -31,3 +31,7 @@ services:
         class: VinceT\BootstrapFormBundle\Form\Type\ColorPickerType
         tags:
             - { name: form.type, alias: bootstrap_colorpicker }
+    vincet.bootstrapform.form.type.slider:
+        class: VinceT\BootstrapFormBundle\Form\Type\SliderType
+        tags:
+            - { name: form.type, alias: bootstrap_slider }

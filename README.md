@@ -11,6 +11,7 @@ This bundle adds the following form Type:
 * [**Money**][9]
 * [**DateRangePicker**][7]
 * [**ColorPicker**][8]
+* [**Slider**][10]
 
 See how to [**install**][3]
 
@@ -23,3 +24,4 @@ See how to [**install**][3]
 [7]: Resources/doc/02-DateRangePicker.md
 [8]: Resources/doc/02-ColorPicker.md
 [9]: Resources/doc/02-Money.md
+[10]: Resources/doc/02-Slider.md
