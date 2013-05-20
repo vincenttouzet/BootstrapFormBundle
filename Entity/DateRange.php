@@ -20,7 +20,7 @@ namespace VinceT\BootstrapFormBundle\Entity;
  * @license  MIT License view the LICENSE file that was distributed with this source code.
  * @link     https://github.com/vincenttouzet/BootstrapFormBundle
  */
-class DateRange implements \Iterator, \ArrayAccess
+class DateRange implements \Iterator, \ArrayAccess, \Serializable
 {
     /**
      * from Date
@@ -210,19 +210,20 @@ class DateRange implements \Iterator, \ArrayAccess
     /**
      * {@inheritdoc}
      * 
+     * @param integer   $offset Offset
+     * @param \DateTime $value  value
+     * 
      * @return null
      */
     public function offsetSet($offset, $value)
     {
-        if (is_null($offset)) {
-            $this->dates[] = $value;
-        } else {
-            $this->dates[$offset] = $value;
-        }
+        // do not let possibility to add / edit date
     }
 
     /**
      * {@inheritdoc}
+     * 
+     * @param integer $offset Offset
      * 
      * @return boolean
      */
@@ -233,6 +234,8 @@ class DateRange implements \Iterator, \ArrayAccess
 
     /**
      * {@inheritdoc}
+     *
+     * @param integer $offset Offset
      * 
      * @return null
      */
@@ -244,10 +247,40 @@ class DateRange implements \Iterator, \ArrayAccess
     /**
      * {@inheritdoc}
      * 
+     * @param integer $offset Offset
+     * 
      * @return \DateTime|null
      */
     public function offsetGet($offset)
     {
         return isset($this->dates[$offset]) ? $this->dates[$offset] : null;
+    }
+
+    /**
+     * {@inheritdoc}
+     * 
+     * @return string
+     */
+    public function serialize()
+    {
+        $dates = array(
+            'from' => $this->from,
+            'to' => $this->to
+        );
+        return serialize($dates);
+    }
+
+    /**
+     * {@inheritdoc}
+     * 
+     * @param string $data Data to unserialize
+     * 
+     * @return null
+     */
+    public function unserialize($data)
+    {
+        $dates = unserialize($data);
+        $this->setFrom($dates['from']);
+        $this->setTo($dates['to']);
     }
 }
