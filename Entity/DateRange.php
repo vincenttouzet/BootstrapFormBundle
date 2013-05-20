@@ -20,7 +20,7 @@ namespace VinceT\BootstrapFormBundle\Entity;
  * @license  MIT License view the LICENSE file that was distributed with this source code.
  * @link     https://github.com/vincenttouzet/BootstrapFormBundle
  */
-class DateRange
+class DateRange implements \Iterator
 {
     /**
      * from Date
@@ -35,6 +35,14 @@ class DateRange
      * @var DateTime|null
      */
     private $to = null;
+
+    /**
+     * date between from and to dates (from and to included)
+     *
+     * @var array
+     */
+    private $dates = array();
+    private $index = 0;
 
     /**
      * __construct
@@ -56,6 +64,26 @@ class DateRange
             }
         }
         $this->setTo($to);
+        $this->index = 0;
+    }
+
+    /**
+     * Build dates between "from" and "to" ("from" and "to" included)
+     *
+     * @return [type]
+     */
+    private function _buildDates()
+    {
+        if ( !$this->from || !$this->to || $this->from > $this->to ) {
+            return;
+        }
+        $this->dates = array();
+        $d = clone $this->from;
+        $this->dates[] = clone $d;
+        while ( $d != $this->to ) {
+            $d->add(new \DateInterval('P1D'));
+            $this->dates[] = clone $d;
+        }
     }
 
     /**
@@ -91,6 +119,7 @@ class DateRange
     public function setFrom($from)
     {
         $this->from = $from;
+        $this->_buildDates();
         return $this;
     }
 
@@ -114,8 +143,67 @@ class DateRange
     public function setTo($to)
     {
         $this->to = $to;
+        $this->_buildDates();
         return $this;
     }
-    
-    
+
+    /**
+     * Gets dates between "from" and "to" ("from" and "to" included)
+     *
+     * @return array
+     */
+    public function getDates()
+    {
+        return $this->dates;
+    }
+
+    /**
+     * {@inheritdoc}
+     * 
+     * @return null
+     */
+    public function rewind()
+    {
+        $this->index = 0;
+    }
+
+    /**
+     * {@inheritdoc}
+     * 
+     * @return \DateTime
+     */
+    public function current()
+    {
+        return $this->dates[$this->index];
+    }
+
+    /**
+     * {@inheritdoc}
+     * 
+     * @return integer
+     */
+    public function key()
+    {
+        return $this->index;
+    }
+
+    /**
+     * {@inheritdoc}
+     * 
+     * @return null
+     */
+    public function next()
+    {
+        ++$this->index;
+    }
+
+    /**
+     * {@inheritdoc}
+     * 
+     * @return boolean
+     */
+    public function valid()
+    {
+        return isset($this->dates[$this->index]);
+    }
 }
