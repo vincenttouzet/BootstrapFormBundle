@@ -20,7 +20,7 @@ namespace VinceT\BootstrapFormBundle\Entity;
  * @license  MIT License view the LICENSE file that was distributed with this source code.
  * @link     https://github.com/vincenttouzet/BootstrapFormBundle
  */
-class DateRange implements \Iterator
+class DateRange implements \Iterator, \ArrayAccess
 {
     /**
      * from Date
@@ -205,5 +205,49 @@ class DateRange implements \Iterator
     public function valid()
     {
         return isset($this->dates[$this->index]);
+    }
+
+    /**
+     * {@inheritdoc}
+     * 
+     * @return null
+     */
+    public function offsetSet($offset, $value)
+    {
+        if (is_null($offset)) {
+            $this->dates[] = $value;
+        } else {
+            $this->dates[$offset] = $value;
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     * 
+     * @return boolean
+     */
+    public function offsetExists($offset)
+    {
+        return isset($this->dates[$offset]);
+    }
+
+    /**
+     * {@inheritdoc}
+     * 
+     * @return null
+     */
+    public function offsetUnset($offset)
+    {
+        unset($this->dates[$offset]);
+    }
+
+    /**
+     * {@inheritdoc}
+     * 
+     * @return \DateTime|null
+     */
+    public function offsetGet($offset)
+    {
+        return isset($this->dates[$offset]) ? $this->dates[$offset] : null;
     }
 }
