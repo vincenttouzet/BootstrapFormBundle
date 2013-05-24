@@ -68,5 +68,18 @@
         $('.bootstrap-slider').each(function(){
             $(this).slider();
         })
+        /**
+         * Chosen
+         */
+        $('.chzn-select').each(function(){
+            var $input = $(this);
+            var no_results_text = $input.data('no-result-text');
+            var options = {};
+            if ( no_results_text ) {
+                options.no_results_text = no_results_text;
+            }
+            console.log(options);
+            $(this).chosen(options);
+        })
     });
 })(jQuery);

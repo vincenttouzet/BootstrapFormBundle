@@ -35,3 +35,7 @@ services:
         class: VinceT\BootstrapFormBundle\Form\Type\SliderType
         tags:
             - { name: form.type, alias: bootstrap_slider }
+    vincet.bootstrapform.form.type.chosen:
+        class: VinceT\BootstrapFormBundle\Form\Type\ChosenType
+        tags:
+            - { name: form.type, alias: bootstrap_chosen }
