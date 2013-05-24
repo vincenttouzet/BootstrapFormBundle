@@ -54,7 +54,6 @@
             if ( ranges ) {
                 options.ranges = ranges;
             }
-            console.log(locale);
             $input.daterangepicker(options);
         });
         /**
