@@ -61,13 +61,13 @@
          */
         $('.bootstrap-colorpicker').each(function(){
             $(this).colorpicker();
-        })
+        });
         /**
          * ColorPicker
          */
         $('.bootstrap-slider').each(function(){
             $(this).slider();
-        })
+        });
         /**
          * Chosen
          */
@@ -80,6 +80,12 @@
             }
             console.log(options);
             $(this).chosen(options);
-        })
+        });
+        /**
+         * ColorPicker
+         */
+        $('.knob').each(function(){
+            $(this).knob();
+        });
     });
 })(jQuery);

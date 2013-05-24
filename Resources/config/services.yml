@@ -39,3 +39,7 @@ services:
         class: VinceT\BootstrapFormBundle\Form\Type\ChosenType
         tags:
             - { name: form.type, alias: bootstrap_chosen }
+    vincet.bootstrapform.form.type.knob:
+        class: VinceT\BootstrapFormBundle\Form\Type\KnobType
+        tags:
+            - { name: form.type, alias: knob }
