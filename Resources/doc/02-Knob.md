@@ -10,11 +10,40 @@ class DemoType extends AbstractType
     {
         $builder
             ->add(
-                'demoString',
-                'bootstrap_colorpicker',
+                'demoInt',
+                'knob',
                 array(
-                    /* the color format. can be one of: hex, rgb, rgba */
-                    'format' => 'rgba'
+                    // width of knob: integer
+                    'width' => 200,
+                    // height of knob: integer
+                    'height' => 200,
+                    // display input: true | false
+                    'displayInput' => true,
+                    // use a cursor: null | true | integer (width of cursor)
+                    'cursor' => 0,
+                    // thickness: null | float (<1)
+                    'thickness' => 0.35,
+                    // color: null | string
+                    'fgColor' => '#87CEEB',
+                    // display previous or not: true | false
+                    'displayPrevious' => false,
+                    // linecap: null | string
+                    'linecap' => 'butt',
+                    // angle offset: null | integer
+                    'angleOffset' => null,
+                    // angle arc: null | integer
+                    'angleArc' => null,
+                    // step: null | integer
+                    'step' => 1,
+                    // min: null | integer
+                    'min' => 0,
+                    // max: null | integer
+                    'max' => 100,
+                    // readonly: false|true
+                    'readonly' => false,
+                    // hide the box shadow for the input
+                    // add a attribute style 
+                    'hide_box_shadow' => true,
                 )
             )
         ;
