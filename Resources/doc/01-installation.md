@@ -31,3 +31,9 @@ twig:
 
 ```
 
+4) Install assets
+-----------------
+
+```
+php app/console assets:install
+```
