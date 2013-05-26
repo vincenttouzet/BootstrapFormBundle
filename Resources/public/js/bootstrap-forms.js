@@ -78,7 +78,6 @@
             if ( no_results_text ) {
                 options.no_results_text = no_results_text;
             }
-            console.log(options);
             $(this).chosen(options);
         });
         /**
