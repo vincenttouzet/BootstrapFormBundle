@@ -35,6 +35,13 @@ class SliderType extends AbstractType
             $view->vars['attr']['class'] = '';
         }
         $view->vars['attr']['class'] .= ' bootstrap-slider';
+        $value = $view->vars['value'];
+        if ( $value ) {
+            if ( strpos($value, ',') !== false ) {
+                $value = sprintf('[%s]', $value);
+            }
+            $view->vars['attr']['data-slider-value'] = $value;
+        }
         $view->vars['attr']['data-slider-min'] = $options['min'];
         $view->vars['attr']['data-slider-max'] = $options['max'];
         $view->vars['attr']['data-slider-step'] = $options['step'];
@@ -42,7 +49,7 @@ class SliderType extends AbstractType
         $view->vars['attr']['data-slider-selection'] = $options['selection'];
         $view->vars['attr']['data-slider-tooltip'] = $options['tooltip'];
         $view->vars['attr']['data-slider-handle'] = $options['handle'];
-        if ( $options['range'] ) {
+        if ( $options['range'] && !$value ) {
             $view->vars['attr']['data-slider-value'] = sprintf(
                 '[%s,%s]',
                 $options['min'], 
