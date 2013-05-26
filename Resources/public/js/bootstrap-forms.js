@@ -69,6 +69,12 @@
             $(this).slider();
         });
         /**
+         * Knob
+         */
+        $('.knob').each(function(){
+            $(this).knob();
+        });
+        /**
          * Chosen
          */
         $('.chzn-select').each(function(){
@@ -79,12 +85,6 @@
                 options.no_results_text = no_results_text;
             }
             $(this).chosen(options);
-        });
-        /**
-         * ColorPicker
-         */
-        $('.knob').each(function(){
-            $(this).knob();
         });
     });
 })(jQuery);
