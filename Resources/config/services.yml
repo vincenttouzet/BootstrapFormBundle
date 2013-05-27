@@ -27,6 +27,8 @@ services:
         class: VinceT\BootstrapFormBundle\Form\Type\DateRangePickerType
         tags:
             - { name: form.type, alias: bootstrap_daterangepicker }
+        calls:
+            - [setTranslator, [@translator]]
     vincet.bootstrapform.form.type.colorpicker:
         class: VinceT\BootstrapFormBundle\Form\Type\ColorPickerType
         tags:
