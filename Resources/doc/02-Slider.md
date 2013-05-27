@@ -42,6 +42,8 @@ Include stylesheets and javascripts:
     {{ parent() }}
     <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/bootstrap-slider/css/slider.css')}}">
+    <!-- CSS fix (in sonata admin 2.2 the input is dsplayed without this fix) -->
+    <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/css/fix.css')}}">
 {% endblock %}
 
 {% block javascripts %}
