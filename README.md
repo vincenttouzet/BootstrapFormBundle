@@ -14,6 +14,7 @@ This bundle adds the following form Type:
 * [**Slider**][10]
 * [**Chosen**][11]
 * [**Knob**][12]
+* [**TypeAhead**][13]
 
 See how to [**install**][3]
 
@@ -29,3 +30,4 @@ See how to [**install**][3]
 [10]: Resources/doc/02-Slider.md
 [11]: Resources/doc/02-Chosen.md
 [12]: Resources/doc/02-Knob.md
+[13]: Resources/doc/02-TypeAhead.md

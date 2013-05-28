@@ -45,3 +45,7 @@ services:
         class: VinceT\BootstrapFormBundle\Form\Type\KnobType
         tags:
             - { name: form.type, alias: knob }
+    vincet.bootstrapform.form.type.typeahead:
+        class: VinceT\BootstrapFormBundle\Form\Type\TypeAheadType
+        tags:
+            - { name: form.type, alias: bootstrap_typeahead }
