@@ -15,7 +15,7 @@ php composer.phar require vincet/bootstrap-form-bundle
 In app/appKernel.php add the following line to register the bundle:
 ```php
 [...]
-            new VinceT\BootstrapFormBundle\VinceTBootstrapFormBundlee(),
+            new VinceT\BootstrapFormBundle\VinceTBootstrapFormBundle(),
 [...]
 ```
 
