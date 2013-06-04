@@ -3,6 +3,8 @@ services:
         class: VinceT\BootstrapFormBundle\Form\Type\DatePickerType
         tags:
             - { name: form.type, alias: bootstrap_datepicker }
+        calls:
+            - [ 'setLocale', ['%locale%']]
     vincet.bootstrapform.form.type.timepicker:
         class: VinceT\BootstrapFormBundle\Form\Type\TimePickerType
         tags:
