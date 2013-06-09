@@ -3,18 +3,25 @@ BootstrapFormBundle
 
 This bundle adds the following form Type:
 
+Date / Time:
 * [**DatePicker**][1]
 * [**TimePicker**][2]
 * [**DateTimePicker**][4]
+* [**DateRangePicker**][7]
+
+Choice:
+* [**TypeAhead**][13]
+* [**Chosen**][11]
+
+Number:
+* [**Slider**][10]
+* [**Knob**][12]
+
+Others:
+* [**ColorPicker**][8]
 * [**Email**][5]
 * [**Percent**][6]
 * [**Money**][9]
-* [**DateRangePicker**][7]
-* [**ColorPicker**][8]
-* [**Slider**][10]
-* [**Chosen**][11]
-* [**Knob**][12]
-* [**TypeAhead**][13]
 
 See how to [**install**][3]
 
