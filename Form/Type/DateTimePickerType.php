@@ -37,8 +37,17 @@ class DateTimePickerType extends AbstractType
     {
         $dateOptions = array_intersect_key($options, array_flip(array(
             'week_start',
-            'view_mode',
+            'calendar_weeks',
+            'start_date',
+            'end_date',
+            'days_of_week_disabled',
+            'autoclose',
+            'start_view',
             'min_view_mode',
+            'today_btn',
+            'today_highlight',
+            'clear_btn',
+            'language',
         )));
 
         $timeOptions = array_intersect_key($options, array_flip(array(

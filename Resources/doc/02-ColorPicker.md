@@ -14,7 +14,9 @@ class DemoType extends AbstractType
                 'bootstrap_colorpicker',
                 array(
                     /* the color format. can be one of: hex, rgb, rgba */
-                    'format' => 'rgba'
+                    'format' => 'rgba',
+                    /* wether to display the widget as component (with input disabled and input append) */
+                    'use_component' => true,
                 )
             )
         ;
