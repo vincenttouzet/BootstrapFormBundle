@@ -49,7 +49,7 @@ Include stylesheets and javascripts:
 ```
 
 If you upgrade from a previous version, pay attention to the change of route scripts from
-bundles/vincetbootstrapform/bootstrap-chosen/**chosen**/ to bundles/vincetbootstrapform/bootstrap-chosen/**public**/
+bundles/vincetbootstrapform/bootstrap-chosen/ **chosen** / to bundles/vincetbootstrapform/bootstrap-chosen/ **public** /
 
 [1]: http://harvesthq.github.io/chosen/
 [2]: http://symfony.com/doc/current/reference/forms/types/choice.html
