@@ -55,7 +55,8 @@ class ChosenType extends AbstractType
 
         $resolver->setDefaults(array(
             'placeholder' => null,
-            'no_results_text' => null
+            'no_results_text' => null,
+            'allow_single_deselect' => null
         ));
 
     }
