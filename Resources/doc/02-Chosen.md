@@ -26,7 +26,11 @@ class DemoType extends AbstractType
                         'France' => 'France',
                         'United States' => 'United States', 
                         'United Kingdom' => 'United Kingdom', 
-                    )
+                    ),
+                    // Allow possibility to deselect the choice
+                    // when the first option has empty text
+                    // and this options is set to true
+                    'allow_single_deselect' => null
                 )
             )
         ;
