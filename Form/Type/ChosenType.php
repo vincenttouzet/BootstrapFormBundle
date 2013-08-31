@@ -42,6 +42,9 @@ class ChosenType extends AbstractType
         if ( $options['no_results_text'] ) {
             $view->vars['attr']['data-no-result-text'] = $options['no_results_text'];
         }
+        if ( $options['allow_single_deselect'] ) {
+            $view->vars['attr']['data-allow-single-deselect'] = $options['allow_single_deselect'];
+        }
     }
 
     /**
@@ -52,7 +55,8 @@ class ChosenType extends AbstractType
 
         $resolver->setDefaults(array(
             'placeholder' => null,
-            'no_results_text' => null
+            'no_results_text' => null,
+            'allow_single_deselect' => null
         ));
 
     }
