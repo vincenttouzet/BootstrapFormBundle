@@ -102,10 +102,17 @@ var jQuery, document;
         $('.chzn-select').each(function() {
             var $input = $(this),
                 no_results_text = $input.data('no-result-text'),
+                allow_single_deselect = $input.data('allow-single-deselect'),
                 options = {};
+
             if (no_results_text) {
                 options.no_results_text = no_results_text;
             }
+
+            if (allow_single_deselect) {
+                options.allow_single_deselect = allow_single_deselect;
+            }
+
             $(this).chosen(options);
         });
     });
