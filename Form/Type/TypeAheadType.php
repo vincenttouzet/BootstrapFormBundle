@@ -12,6 +12,8 @@
 namespace VinceT\BootstrapFormBundle\Form\Type;
 
 
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormInterface;
@@ -26,8 +28,9 @@ use Symfony\Component\Form\FormView;
  * @license  MIT License view the LICENSE file that was distributed with this source code.
  * @link     https://github.com/vincenttouzet/BootstrapFormBundle
  */
-class TypeAheadType extends AbstractType
+class TypeAheadType extends AbstractType implements ContainerAwareInterface
 {
+    protected $container = null;
 
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
@@ -35,7 +38,14 @@ class TypeAheadType extends AbstractType
         if ( is_array($source) ) {
             $source = json_encode($source);
         }
-        $view->vars['attr']['data-provide'] = 'typeahead';
+        //$view->vars['attr']['data-provide'] = 'typeahead';
+        if ( !isset($view->vars['attr']['class']) ) {
+            $view->vars['attr']['class'] = '';
+        }
+        $view->vars['attr']['class'] .= ' bootstrap-typeahead';
+        if (is_string($source)) {
+            $source = $this->container->get('router')->generate($source);
+        }
         $view->vars['attr']['data-source'] = $source;
         $view->vars['attr']['data-items'] = $options['items'];
         $view->vars['attr']['data-min-length'] = $options['min_length'];
@@ -59,4 +69,17 @@ class TypeAheadType extends AbstractType
     {
         return 'bootstrap_typeahead';
     }
+
+    /**
+     * Sets the Container.
+     *
+     * @param ContainerInterface|null $container A ContainerInterface instance or null
+     *
+     * @api
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
 }

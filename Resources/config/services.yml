@@ -51,3 +51,5 @@ services:
         class: VinceT\BootstrapFormBundle\Form\Type\TypeAheadType
         tags:
             - { name: form.type, alias: bootstrap_typeahead }
+        calls:
+            - [setContainer, [@service_container]]
