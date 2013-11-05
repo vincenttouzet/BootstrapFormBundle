@@ -94,6 +94,20 @@ class DateTimePickerType extends AbstractType
             'minute_step' => 15,
             'second_step' => 15,
             'disable_focus' => false,
+
+
+            'calendar_weeks' => false,
+            'start_date' => null,
+            'end_date' => null,
+            'days_of_week_disabled' => '',
+            'autoclose' => true,
+            'start_view' => 0,
+            'min_view_mode' => 0,
+            'today_btn' => false,
+            'today_highlight' => false,
+            'clear_btn' => false,
+            'language' => false,
+
             'attr' => array(
                 'class' => 'input-small'
             ),
@@ -103,6 +117,15 @@ class DateTimePickerType extends AbstractType
             'week_start' => array(0, 1, 2, 3, 4, 5, 6),
             'view_mode'    => array(0, 'days', 1, 'months', 2, 'years'),
             'min_view_mode'    => array(0, 'days', 1, 'months', 2, 'years'),
+
+            'start_view' => array(0, 'month', 1, 'year', 2, 'decade'),
+            'calendar_weeks' => array(true, false),
+            'autoclose' => array(true, false),
+            'today_btn' => array(true, false, 'linked'),
+            'today_highlight' => array(true, false),
+            'clear_btn' => array(true, false),
+
+
         ));
     }
 
