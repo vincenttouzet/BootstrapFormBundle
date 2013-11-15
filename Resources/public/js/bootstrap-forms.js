@@ -1,4 +1,4 @@
-var jQuery, document;
+
 (function($) {
     "use strict";
     $(document).ready(function() {
