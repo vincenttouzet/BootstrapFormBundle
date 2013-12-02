@@ -37,15 +37,16 @@ class TypeAheadType extends AbstractType implements ContainerAwareInterface
         $source = $options['source'];
         if ( is_array($source) ) {
             $source = json_encode($source);
+        }elseif (is_string($source)) {
+            $source = $this->container->get('router')->generate($source);
         }
         //$view->vars['attr']['data-provide'] = 'typeahead';
         if ( !isset($view->vars['attr']['class']) ) {
             $view->vars['attr']['class'] = '';
         }
+        
         $view->vars['attr']['class'] .= ' bootstrap-typeahead';
-        if (is_string($source)) {
-            $source = $this->container->get('router')->generate($source);
-        }
+        
         $view->vars['attr']['data-source'] = $source;
         $view->vars['attr']['data-items'] = $options['items'];
         $view->vars['attr']['data-min-length'] = $options['min_length'];
