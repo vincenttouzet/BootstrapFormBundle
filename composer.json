@@ -1,5 +1,5 @@
 {
-    "name": "vincet/bootstrap-form-bundle",
+    "name": "mrgreenstuff/bootstrap-form-bundle",
     "type": "symfony-bundle",
     "description": "Symfony VinceTBootstrapFormBundle",
     "license": "MIT",
@@ -7,6 +7,10 @@
         {
             "name": "Vincent Touzet",
             "email": "vincent.touzet@gmail.com"
+        },
+        {
+            "name": "JUILLARD Yoann",
+            "email": "juillard.yoann@gmail.com"
         }
     ],
     "require": {
