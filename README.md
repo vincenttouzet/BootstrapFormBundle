@@ -4,7 +4,7 @@ BootstrapFormBundle
 This bundle adds the following form Type:
 
 Date / Time:
-* [**DatePicker**][1]
+* [**DatePicker**][1] - (Fork for add end_date and start_date working with '+1d' '-2y' etc...)
 * [**TimePicker**][2]
 * [**DateTimePicker**][4]
 * [**DateRangePicker**][7]
