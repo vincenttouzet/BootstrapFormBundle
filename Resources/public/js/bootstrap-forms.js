@@ -1,4 +1,3 @@
-
 (function($) {
     "use strict";
     $(document).ready(function() {
@@ -31,10 +30,14 @@
                 },
                 start_date = $input.data('start-date'),
                 end_date = $input.data('end-date');
-            if (start_date) {
+            if (start_date && (start_date.substr(0,1)=='+' || start_date.substr(0,1)=='-')) {
+                options.startDate = start_date;
+            }else if(start_date){
                 options.startDate = new Date(start_date);
             }
-            if (end_date) {
+            if (end_date && (end_date.substr(0,1)=='+' || end_date.substr(0,1)=='-')) {
+                options.endDate = end_date;
+            }else if(start_date){
                 options.endDate = new Date(end_date);
             }
             $(this).datepicker(options);
