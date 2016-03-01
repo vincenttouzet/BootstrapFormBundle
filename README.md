@@ -19,6 +19,7 @@ Number:
 
 Others:
 * [**ColorPicker**][8]
+* [**MiniColor**][14]
 * [**Email**][5]
 * [**Percent**][6]
 * [**Money**][9]
@@ -38,3 +39,4 @@ See how to [**install**][3]
 [11]: Resources/doc/02-Chosen.md
 [12]: Resources/doc/02-Knob.md
 [13]: Resources/doc/02-TypeAhead.md
+[14]: Resources/doc/02-MiniColors.md

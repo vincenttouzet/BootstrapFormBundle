@@ -88,6 +88,33 @@
             $(this).colorpicker();
         });
         /**
+         * MiniColors
+         */
+        $('.minicolors').each(function () {
+            var $input = $(this),
+                settings = {
+                    'animation_speed': $input.data('animation-speed'),
+                    'animation_easing': $input.data('animation-easing'),
+                    'change': $input.data('change'),
+                    'change_delay': $input.data('change-delay'),
+                    'control': $input.data('control'),
+                    'data_uris': $input.data('data-uris'),
+                    'default_value': $input.data('default-value'),
+                    'format': $input.data('format'),
+                    'hide': $input.data('hide'),
+                    'hide_speed': $input.data('hide-speed'),
+                    'inline': $input.data('inline'),
+                    'keywords': $input.data('keywords'),
+                    'letter_case': $input.data('letter-case'),
+                    'opacity': $input.data('opacity'),
+                    'position': $input.data('position'),
+                    'show': $input.data('show'),
+                    'show_speed': $input.data('show-speed'),
+                    'theme': $input.data('theme')
+                };
+            $input.minicolors(settings);
+        });
+        /**
          * ColorPicker
          */
         $('.bootstrap-slider').each(function() {

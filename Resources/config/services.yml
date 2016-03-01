@@ -53,3 +53,7 @@ services:
             - { name: form.type, alias: bootstrap_typeahead }
         calls:
             - [setContainer, [@service_container]]
+    vincet.bootstrapform.form.type.minicolors:
+        class: VinceT\BootstrapFormBundle\Form\Type\MiniColorsType
+        tags:
+            - { name: form.type, alias: bootstrap_minicolors }
