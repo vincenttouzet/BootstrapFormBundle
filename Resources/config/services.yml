@@ -30,7 +30,7 @@ services:
         tags:
             - { name: form.type, alias: bootstrap_daterangepicker }
         calls:
-            - [setTranslator, [@translator]]
+            - [setTranslator, ["@translator"]]
     vincet.bootstrapform.form.type.colorpicker:
         class: VinceT\BootstrapFormBundle\Form\Type\ColorPickerType
         tags:
@@ -52,7 +52,7 @@ services:
         tags:
             - { name: form.type, alias: bootstrap_typeahead }
         calls:
-            - [setContainer, [@service_container]]
+            - [setContainer, ["@service_container"]]
     vincet.bootstrapform.form.type.minicolors:
         class: VinceT\BootstrapFormBundle\Form\Type\MiniColorsType
         tags:
