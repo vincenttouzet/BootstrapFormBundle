@@ -2,58 +2,19 @@ services:
     vincet.bootstrapform.form.type.datepicker:
         class: VinceT\BootstrapFormBundle\Form\Type\DatePickerType
         tags:
-            - { name: form.type, alias: bootstrap_datepicker }
+            - { name: form.type }
         calls:
             - [ 'setLocale', ['%locale%']]
-    vincet.bootstrapform.form.type.timepicker:
-        class: VinceT\BootstrapFormBundle\Form\Type\TimePickerType
-        tags:
-            - { name: form.type, alias: bootstrap_timepicker }
-    vincet.bootstrapform.form.type.datetimepicker:
-        class: VinceT\BootstrapFormBundle\Form\Type\DateTimePickerType
-        tags:
-            - { name: form.type, alias: bootstrap_datetimepicker }
-    vincet.bootstrapform.form.type.email:
-        class: VinceT\BootstrapFormBundle\Form\Type\EmailType
-        tags:
-            - { name: form.type, alias: bootstrap_email }
-    vincet.bootstrapform.form.type.percent:
-        class: VinceT\BootstrapFormBundle\Form\Type\PercentType
-        tags:
-            - { name: form.type, alias: bootstrap_percent }
-    vincet.bootstrapform.form.type.money:
-        class: VinceT\BootstrapFormBundle\Form\Type\MoneyType
-        tags:
-            - { name: form.type, alias: bootstrap_money }
+
     vincet.bootstrapform.form.type.daterangepicker:
         class: VinceT\BootstrapFormBundle\Form\Type\DateRangePickerType
+        arguments: ['@translator']
         tags:
-            - { name: form.type, alias: bootstrap_daterangepicker }
-        calls:
-            - [setTranslator, ["@translator"]]
-    vincet.bootstrapform.form.type.colorpicker:
-        class: VinceT\BootstrapFormBundle\Form\Type\ColorPickerType
-        tags:
-            - { name: form.type, alias: bootstrap_colorpicker }
-    vincet.bootstrapform.form.type.slider:
-        class: VinceT\BootstrapFormBundle\Form\Type\SliderType
-        tags:
-            - { name: form.type, alias: bootstrap_slider }
-    vincet.bootstrapform.form.type.chosen:
-        class: VinceT\BootstrapFormBundle\Form\Type\ChosenType
-        tags:
-            - { name: form.type, alias: bootstrap_chosen }
-    vincet.bootstrapform.form.type.knob:
-        class: VinceT\BootstrapFormBundle\Form\Type\KnobType
-        tags:
-            - { name: form.type, alias: knob }
+            - { name: form.type }
+
     vincet.bootstrapform.form.type.typeahead:
         class: VinceT\BootstrapFormBundle\Form\Type\TypeAheadType
         tags:
-            - { name: form.type, alias: bootstrap_typeahead }
+            - { name: form.type }
         calls:
             - [setContainer, ["@service_container"]]
-    vincet.bootstrapform.form.type.minicolors:
-        class: VinceT\BootstrapFormBundle\Form\Type\MiniColorsType
-        tags:
-            - { name: form.type, alias: bootstrap_minicolors }

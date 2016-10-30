@@ -13,6 +13,7 @@ namespace VinceT\BootstrapFormBundle\Form\Type;
 
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
@@ -58,24 +59,11 @@ class MoneyType extends AbstractType
         }
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'attr' => array(
-                'class' => 'input-small',
-            ),
-        ));
-    }
-
     public function getParent()
     {
-        return 'money';
+        return \Symfony\Component\Form\Extension\Core\Type\MoneyType::class;
     }
 
-    public function getName()
-    {
-        return 'bootstrap_money';
-    }
         /**
      * Returns the pattern for this locale
      *

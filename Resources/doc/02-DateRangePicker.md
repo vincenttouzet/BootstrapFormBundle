@@ -11,7 +11,7 @@ class DemoType extends AbstractType
         $builder
             ->add(
                 'demoString', 
-                'bootstrap_daterangepicker', 
+                DateRangePickerType::class,
                 array(
                     'drp_translation_domain'=>'VinceTBootstrapFormBundle',
                     'required' => false,

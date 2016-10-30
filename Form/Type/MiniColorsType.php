@@ -12,8 +12,10 @@
 namespace VinceT\BootstrapFormBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class MiniColorsType extends AbstractType
@@ -45,8 +47,7 @@ class MiniColorsType extends AbstractType
         $view->vars['attr']['data-theme'] = $options['theme'];
     }
 
-
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'animation_speed' => 50,
@@ -69,17 +70,15 @@ class MiniColorsType extends AbstractType
             'theme' => 'bootstrap',
         ));
 
-        $resolver->setAllowedValues(array(
-            'control' => array('hue', 'brightness', 'saturation', 'wheel'),
-            'format' => array('hex', 'rgb'),
-            'letter_case' => array('uppercase', 'lowercase'),
-            'position' => array('bottom left', 'bottom right', 'top left', 'top right'),
-        ));
+        $resolver->setAllowedValues('control', ['hue', 'brightness', 'saturation', 'wheel']);
+        $resolver->setAllowedValues('format', ['hex', 'rgb']);
+        $resolver->setAllowedValues('letter_case', ['uppercase', 'lowercase']);
+        $resolver->setAllowedValues('position', ['bottom left', 'bottom right', 'top left', 'top right']);
     }
 
     public function getParent()
     {
-        return 'text';
+        return TextType::class;
     }
 
     /**

@@ -11,7 +11,7 @@ class DemoType extends AbstractType
         $builder
             ->add(
                 'demoString',
-                'bootstrap_colorpicker',
+                ColorPickerType::class,
                 array(
                     /* the color format. can be one of: hex, rgb, rgba */
                     'format' => 'rgba',

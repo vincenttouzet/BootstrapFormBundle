@@ -13,6 +13,9 @@ namespace VinceT\BootstrapFormBundle\Form\Type;
 
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -100,9 +103,9 @@ class DatePickerType extends AbstractType
         $view->vars['attr']['data-language'] = $language;
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'input' => 'datetime',
             'format' => 'yyyy-MM-dd',
             'week_start' => 0, // day of the week start. 0 for Sunday - 6 for Saturday
@@ -117,26 +120,21 @@ class DatePickerType extends AbstractType
             'today_highlight' => false,
             'clear_btn' => false,
             'language' => false,
-            'attr' => array(
-                'class' => 'input-small'
-            ),
-        ));
+        ]);
 
-        $resolver->setAllowedValues(array(
-            'week_start' => array(0, 1, 2, 3, 4, 5, 6),
-            'start_view' => array(0, 'month', 1, 'year', 2, 'decade'),
-            'min_view_mode' => array(0, 'days', 1, 'months', 2, 'years'),
-            'calendar_weeks' => array(true, false),
-            'autoclose' => array(true, false),
-            'today_btn' => array(true, false, 'linked'),
-            'today_highlight' => array(true, false),
-            'clear_btn' => array(true, false),
-        ));
+        $resolver->setAllowedValues('week_start', [0, 1, 2, 3, 4, 5, 6]);
+        $resolver->setAllowedValues('start_view', [0, 'month', 1, 'year', 2, 'decade']);
+        $resolver->setAllowedValues('min_view_mode', [0, 'days', 1, 'months', 2, 'years']);
+        $resolver->setAllowedValues('calendar_weeks', [true, false]);
+        $resolver->setAllowedValues('autoclose', [true, false]);
+        $resolver->setAllowedValues('today_btn', [true, false, 'linked']);
+        $resolver->setAllowedValues('today_highlight', [true, false]);
+        $resolver->setAllowedValues('clear_btn', [true, false]);
     }
 
     public function getParent()
     {
-        return 'text';
+        return TextType::class;
     }
 
     public function getName()
@@ -166,5 +164,4 @@ class DatePickerType extends AbstractType
         $this->locale = $locale;
         return $this;
     }
-    
 }

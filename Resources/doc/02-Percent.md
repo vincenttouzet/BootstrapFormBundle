@@ -10,7 +10,7 @@ class DemoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('demoString', 'bootstrap_percent')
+            ->add('demoString', PercentType::class)
         ;
     }
 }

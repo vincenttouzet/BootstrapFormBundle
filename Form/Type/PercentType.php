@@ -26,23 +26,8 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  */
 class PercentType extends AbstractType
 {
-
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'attr' => array(
-                'class' => 'input-small',
-            ),
-        ));
-    }
-
     public function getParent()
     {
-        return 'percent';
-    }
-
-    public function getName()
-    {
-        return 'bootstrap_percent';
+        return \Symfony\Component\Form\Extension\Core\Type\PercentType::class;
     }
 }

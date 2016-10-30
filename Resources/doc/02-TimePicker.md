@@ -12,7 +12,7 @@ class DemoType extends AbstractType
         $builder
             ->add(
                 'demoTime', 
-                'bootstrap_timepicker', 
+                TimePickerType::class,
                 array(
                     'label'=>'form.label_demo_time', 
                     'translation_domain'=>'VinceTDemoBundleDemo', 

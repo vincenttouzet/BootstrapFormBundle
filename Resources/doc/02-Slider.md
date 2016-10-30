@@ -11,7 +11,7 @@ class DemoType extends AbstractType
         $builder
             ->add(
                 'demoString',
-                'bootstrap_slider',
+                SliderType::class,
                 array(
                     // minimum possible value
                     'min' => 0,

@@ -13,6 +13,8 @@ namespace VinceT\BootstrapFormBundle\Form\Type;
 
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
@@ -76,7 +78,7 @@ class KnobType extends AbstractType
         }
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'width' => 200,
@@ -96,15 +98,13 @@ class KnobType extends AbstractType
             'hide_box_shadow' => true,
         ));
 
-        $resolver->setAllowedValues(array(
-            'displayInput' => array(true, false),
-            'displayPrevious' => array(true, false),
-        ));
+        $resolver->setAllowedValues('displayInput', [true, false]);
+        $resolver->setAllowedValues('displayPrevious', [true, false]);
     }
 
     public function getParent()
     {
-        return 'number';
+        return NumberType::class;
     }
 
     public function getName()

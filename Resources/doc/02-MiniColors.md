@@ -11,7 +11,7 @@ class DemoType extends AbstractType
         $builder
             ->add(
                 'demoString',
-                'bootstrap_minicolors',
+                MiniColorsType::class,
                 array(
                     'animation_speed' => 50,
                     'animation_easing' => 'swing',
@@ -51,5 +51,7 @@ Include stylesheets and javascripts:
     <script src="{{asset('bundles/vincetbootstrapform/js/bootstrap-forms.js')}}"></script>
 {% endblock %}
 ```
+
+You can also retrieve the update version with the bower's package @minicolors@.
 
 [1]: http://labs.abeautifulsite.net/jquery-minicolors/

@@ -11,7 +11,7 @@ class DemoType extends AbstractType
         $builder
             ->add(
                 'demoInt',
-                'knob',
+                KnobType::class,
                 array(
                     // width of knob: integer
                     'width' => 200,
@@ -59,5 +59,7 @@ Include stylesheets and javascripts:
     <script src="{{asset('bundles/vincetbootstrapform/js/bootstrap-forms.js')}}"></script>
 {% endblock %}
 ```
+
+You can also retrieve updated version with the bower's package @jquery-knob@.
 
 [1]: http://anthonyterrien.com/knob/

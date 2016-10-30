@@ -12,7 +12,7 @@ class DemoType extends AbstractType
         $builder
             ->add(
                 'demoDatetime', 
-                'bootstrap_datetimepicker', 
+                DateTimePickerType::class,
                 array(
                     /* day of the week start. 0 for Sunday - 6 for Saturday */
                     'week_start'=>0, 

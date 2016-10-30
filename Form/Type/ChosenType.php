@@ -13,9 +13,10 @@ namespace VinceT\BootstrapFormBundle\Form\Type;
 
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * ChosenType
@@ -47,23 +48,18 @@ class ChosenType extends AbstractType
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
-
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'placeholder' => null,
             'no_results_text' => null,
             'allow_single_deselect' => null
-        ));
-
+        ]);
     }
 
     public function getParent()
     {
-        return 'choice';
+        return ChoiceType::class;
     }
 
     public function getName()

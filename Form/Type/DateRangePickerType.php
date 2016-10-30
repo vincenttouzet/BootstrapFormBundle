@@ -13,6 +13,8 @@ namespace VinceT\BootstrapFormBundle\Form\Type;
 
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -31,7 +33,13 @@ use VinceT\BootstrapFormBundle\Form\DataTransformer\DateRangeToStringTransformer
  */
 class DateRangePickerType extends AbstractType
 {
+    /** @var  TranslatorInterface */
     protected $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->setTranslator($translator);
+    }
 
     public function setTranslator(TranslatorInterface $translator)
     {
@@ -99,7 +107,7 @@ class DateRangePickerType extends AbstractType
         ));
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             // translation domain for the date range picker widget
@@ -136,16 +144,14 @@ class DateRangePickerType extends AbstractType
             ),
         ));
 
-        $resolver->setAllowedValues(array(
-            'opens' => array('left', 'right'),
-            'show_week_numbers' => array(true, false),
-            'show_dropdowns' => array(true, false),
-        ));
+        $resolver->setAllowedValues('opens', ['left', 'right']);
+        $resolver->setAllowedValues('show_week_numbers', [true, false]);
+        $resolver->setAllowedValues('show_dropdowns', [true, false]);
     }
 
     public function getParent()
     {
-        return 'text';
+        return TextType::class;
     }
 
     public function getName()

@@ -15,6 +15,8 @@ namespace VinceT\BootstrapFormBundle\Form\Type;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
@@ -52,7 +54,7 @@ class TypeAheadType extends AbstractType implements ContainerAwareInterface
         $view->vars['attr']['data-min-length'] = $options['min_length'];
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'source' => array(),
@@ -63,12 +65,7 @@ class TypeAheadType extends AbstractType implements ContainerAwareInterface
 
     public function getParent()
     {
-        return 'text';
-    }
-
-    public function getName()
-    {
-        return 'bootstrap_typeahead';
+        return TextType::class;
     }
 
     /**

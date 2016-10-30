@@ -11,7 +11,7 @@ class DemoType extends AbstractType
         $builder
             ->add(
                 'demoString',
-                'bootstrap_typeahead',
+                TypeAheadType::class,
                 array(
                     'source' => array(
                         'Alabama',

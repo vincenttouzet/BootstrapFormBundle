@@ -11,7 +11,7 @@ class DemoType extends AbstractType
         $builder
             ->add(
                 'demoDate', 
-                'bootstrap_datepicker', 
+                DatePickerType::class,
                 array(
                     // format
                     'format' => 'yyyy-MM-dd',

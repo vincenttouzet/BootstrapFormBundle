@@ -28,11 +28,6 @@ class EmailType extends AbstractType
 
     public function getParent()
     {
-        return 'email';
-    }
-
-    public function getName()
-    {
-        return 'bootstrap_email';
+        return EmailType::class;
     }
 }

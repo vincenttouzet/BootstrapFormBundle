@@ -11,7 +11,7 @@ class DemoType extends AbstractType
         $builder
             ->add(
                 'demoString',
-                'bootstrap_chosen',
+                ChosenType::class,
                 array(
                     // text used when no options selected
                     'placeholder' => 'Choose a country',
