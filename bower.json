@@ -1,0 +1,18 @@
+{
+  "name": "VinceTBootstrapFormBundle",
+  "homepage": "https://github.com/vincenttouzet/BootstrapFormBundle",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Vincent Touzet <vincent.touzet@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap-timepicker": "^0.5.2",
+    "bootstrap-datepicker": "^1.6.4",
+    "jquery-minicolors": "^2.2.4",
+    "jquery-knob": "^1.2.13",
+    "bootstrap-daterangepicker": "^2.1.24"
+  }
+}

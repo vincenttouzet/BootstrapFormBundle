@@ -1,0 +1,71 @@
+{% block bootstrap_datepicker_widget %}
+{% spaceless %}
+    <div class="input-group date bootstrap-datepicker" data-date="{{ value }}" data-date-format="{{ format|lower }}">
+        {{ block('form_widget_simple') }}
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    </div>
+{% endspaceless %}
+{% endblock %}
+
+{% block bootstrap_timepicker_widget %}
+{% spaceless %}
+    {% if type is not defined or type not in ['file', 'hidden'] %}
+        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) -%}
+    {% endif %}
+    <div class="input-group bootstrap-timepicker">
+        <input type="text" {{ block('widget_attributes') }} 
+        {% if value is not empty %}value="{{ value }}" {% endif %}
+        data-minute-step="{{ minute_step }}"
+        data-second-step="{{ second_step }}"
+        {% if disable_focus %}data-disable-focus="{{ disable_focus }}" {% endif %}
+        {% if with_seconds %}data-show-seconds="{{ with_seconds }}" {% endif %}
+        />
+        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+    </div>
+{% endspaceless %}
+{% endblock %}
+
+{% block bootstrap_daterangepicker_widget %}
+{% spaceless %}
+    {% if type is not defined or type not in ['file', 'hidden'] %}
+        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) -%}
+    {% endif %}
+    <div class="input-group bootstrap-daterangepicker">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        <input type="text" {{ block('widget_attributes') }} 
+        {% if value is not empty %}value="{{ value }}" {% endif %}
+        data-opens="{{ opens }}"
+        data-separator="{{ separator }}"
+        data-show-week-numbers="{{ show_week_numbers }}"
+        data-show-dropdowns="{{ show_dropdowns }}"
+        data-min-date="{{ min_date }}"
+        data-max-date="{{ max_date }}"
+        data-date-limit="{{ date_limit }}"
+        data-ranges="{{ ranges }}"
+        data-locale="{{ locale }}"
+        />
+    </div>
+{% endspaceless %}
+{% endblock %}
+
+{% block bootstrap_colorpicker_widget %}
+{% spaceless %}
+    {% if use_component %}
+        {{ block('bootstrap_colorpicker_component_widget') }}
+    {% else %}
+        {{ block('form_widget_simple') }}
+    {% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block bootstrap_colorpicker_component_widget %}
+{% spaceless %}
+    <div class="input-group bootstrap-colorpicker color" data-color="{{ value }}" data-color-format="{{ format }}">
+        {{ block('form_widget_simple') }}
+        <span class="input-group-addon">
+            <i {% if value %}style="background-color: {{ value }}"{% endif %}></i>
+        </span>
+    </div>
+{% endspaceless %}
+{% endblock %}
+
