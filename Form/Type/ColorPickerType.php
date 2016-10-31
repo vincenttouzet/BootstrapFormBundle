@@ -35,6 +35,8 @@ class ColorPickerType extends AbstractType
     {
         $view->vars = array_replace($view->vars, array(
             'format' => $options['format'],
+            'horizontal' => $options['horizontal'],
+            'align' => $options['align'],
             'use_component' => $options['use_component'],
         ));
         // if use of widget component
@@ -47,7 +49,9 @@ class ColorPickerType extends AbstractType
                 $view->vars['attr']['class'] = '';
             }
             $view->vars['attr']['class'] .= ' bootstrap-colorpicker';
-            $view->vars['attr']['data-color-format'] = $options['format'];
+            $view->vars['attr']['data-format'] = $options['format'];
+            $view->vars['attr']['data-horizontal'] = $options['horizontal'];
+            $view->vars['attr']['data-align'] = $options['align'];
         }
     }
 
@@ -55,11 +59,15 @@ class ColorPickerType extends AbstractType
     {
         $resolver->setDefaults([
             'format' => 'hex',
+            'horizontal' => false,
+            'align' => 'left',
             'use_component' => true,
         ]);
 
-        $resolver->setAllowedValues('use_component', [true, false]);
         $resolver->setAllowedValues('format', ['hex', 'rgb', 'rgba']);
+        $resolver->setAllowedValues('horizontal', [true, false]);
+        $resolver->setAllowedValues('align', ['right', 'left']);
+        $resolver->setAllowedValues('use_component', [true, false]);
     }
 
     public function getParent()

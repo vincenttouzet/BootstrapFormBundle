@@ -60,11 +60,23 @@
 
 {% block bootstrap_colorpicker_component_widget %}
 {% spaceless %}
-    <div class="input-group bootstrap-colorpicker color" data-color="{{ value }}" data-color-format="{{ format }}">
+    <div class="input-group bootstrap-colorpicker color"
+         data-color="{{ value }}"
+         data-format="{{ format }}"
+         data-horizontal="{{ horizontal }}"
+         {#data-inline="{{ inline }}"#}
+         data-align="{{ align }}">
+        {% if align == 'left' %}
+            <span class="input-group-addon">
+                <i {% if value %}style="background-color: {{ value }}"{% endif %}></i>
+            </span>
+        {% endif %}
         {{ block('form_widget_simple') }}
-        <span class="input-group-addon">
-            <i {% if value %}style="background-color: {{ value }}"{% endif %}></i>
-        </span>
+        {% if align == 'right' %}
+            <span class="input-group-addon">
+                <i {% if value %}style="background-color: {{ value }}"{% endif %}></i>
+            </span>
+        {% endif %}
     </div>
 {% endspaceless %}
 {% endblock %}
