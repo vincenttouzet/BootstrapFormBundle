@@ -13,6 +13,7 @@
     "bootstrap-datepicker": "^1.6.4",
     "jquery-minicolors": "^2.2.4",
     "jquery-knob": "^1.2.13",
-    "bootstrap-daterangepicker": "^2.1.24"
+    "bootstrap-daterangepicker": "^2.1.24",
+    "chosen": "^1.6.2"
   }
 }
