@@ -36,11 +36,6 @@ class DateRangePickerType extends AbstractType
     /** @var  TranslatorInterface */
     protected $translator;
 
-    public function __construct(TranslatorInterface $translator)
-    {
-        $this->setTranslator($translator);
-    }
-
     public function setTranslator(TranslatorInterface $translator)
     {
         $this->translator = $translator;

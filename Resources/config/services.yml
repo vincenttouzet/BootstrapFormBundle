@@ -8,7 +8,8 @@ services:
 
     vincet.bootstrapform.form.type.daterangepicker:
         class: VinceT\BootstrapFormBundle\Form\Type\DateRangePickerType
-        arguments: ['@translator']
+        calls:
+            - [ 'setTranslator', ['@translator']]
         tags:
             - { name: form.type }
 
