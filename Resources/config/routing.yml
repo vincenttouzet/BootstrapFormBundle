@@ -1,0 +1,37 @@
+
+vincet_bootstrap_form_chosen_demo:
+    path: /chosen
+    defaults: { _controller: "VinceTBootstrapFormBundle:ChosenDemo:demo" }
+
+vincet_bootstrap_form_colorpicker_demo:
+    path: /colorpicker
+    defaults: { _controller: "VinceTBootstrapFormBundle:ColorPickerDemo:demo" }
+
+vincet_bootstrap_form_datepicker_demo:
+    path: /datepicker
+    defaults: { _controller: "VinceTBootstrapFormBundle:DatePickerDemo:demo" }
+
+vincet_bootstrap_form_daterangepicker_demo:
+    path: /daterangepicker
+    defaults: { _controller: "VinceTBootstrapFormBundle:DateRangePickerDemo:demo" }
+
+vincet_bootstrap_form_datetimepicker_demo:
+    path: /datetime
+    defaults: { _controller: "VinceTBootstrapFormBundle:DateTimePickerDemo:demo" }
+
+vincet_bootstrap_form_knob_demo:
+    path: /knob
+    defaults: { _controller: "VinceTBootstrapFormBundle:KnobDemo:demo" }
+
+vincet_bootstrap_form_minicolors_demo:
+    path: /minicolors
+    defaults: { _controller: "VinceTBootstrapFormBundle:MinicolorsDemo:demo" }
+
+vincet_bootstrap_form_bootstrap_slider_demo:
+    path: /slider
+    defaults: { _controller: "VinceTBootstrapFormBundle:SliderDemo:demo" }
+
+vincet_bootstrap_form_timepicker_demo:
+    path: /timepicker
+    defaults: { _controller: "VinceTBootstrapFormBundle:DateTimePickerDemo:demo" }
+

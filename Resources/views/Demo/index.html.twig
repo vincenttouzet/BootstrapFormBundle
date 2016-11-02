@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/bootstrap-datepicker/css/datepicker.css') }}">#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/bootstrap-daterangepicker/daterangepicker.css') }}">#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/bootstrap-chosen/public/chosen.css') }}">#}
+    {#<link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/bootstrap-slider/css/slider.css') }}">#}
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/chosen/chosen.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrapSlider/css/slider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-timepicker/css/timepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/jquery-minicolors/jquery.minicolors.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css') }}">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Date / Time <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('vincet_bootstrap_form_datepicker_demo') }}">DatePicker</a></li>
+                        <li><a href="{{ path('vincet_bootstrap_form_timepicker_demo') }}">TimePicker</a></li>
+                        <li><a href="{{ path('vincet_bootstrap_form_datetimepicker_demo') }}">DateTimePicker</a></li>
+                        <li><a href="{{ path('vincet_bootstrap_form_daterangepicker_demo') }}">DateRangePicker</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Choice <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('vincet_bootstrap_form_chosen_demo') }}">Chosen</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Number <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('vincet_bootstrap_form_knob_demo') }}">Knob</a></li>
+                        <li><a href="{{ path('vincet_bootstrap_form_bootstrap_slider_demo') }}">Slider</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Color <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('vincet_bootstrap_form_colorpicker_demo') }}">ColorPicker</a></li>
+                        <li><a href="{{ path('vincet_bootstrap_form_minicolors_demo') }}">Minicolors</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    <h1>{{ type_short }} <small>Inherit <a href="https://symfony.com/doc/current/reference/forms/types/{{ parent_name }}.html" target="_blank">{{ parent_type_short }}</a></small></h1>
+
+    <h2>Examples</h2>
+    {% if data|length %}
+        <p>Submitted data</p>
+        {{ dump(data) }}
+    {% endif %}
+    {{ form_start(form) }}
+    {% for child in form %}
+        {% if options is defined and child.vars.name[:4] == 'demo' %}
+            <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    {{ form_row(child) }}
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    {% set child_options = {} %}
+                    {% set child_options_set = options_set[child.vars.name[4:]] %}
+                    {%- for option in options -%}
+                        {% if child_options_set[option] is defined %}
+                            {% set child_options = child_options|merge({(option): child_options_set[option]}) %}
+                        {% endif %}
+                    {% endfor -%}
+                    <label>Options</label>
+                    {{ dump(child_options) }}
+                </div>
+            </div>
+            <hr>
+        {% endif %}
+    {% endfor %}
+    {{ form_widget(form) }}
+    <div class="form-actions well clearfix">
+        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+    </div>
+    {{ form_end(form) }}
+</div>
+<script src="{{ asset('bundles/vincetbootstrapform/vendor/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+{#<script src="{{ asset('bundles/vincetbootstrapform/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>#}
+<!-- Include translation for the language you choose (optionnal if you're using 'en' language) -->
+{#<script src="{{ asset('bundles/vincetbootstrapform/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>#}
+{#<script src="{{ asset('bundles/vincetbootstrapform/bootstrap-daterangepicker/date.js') }}"></script>#}
+{#<script src="{{ asset('bundles/vincetbootstrapform/bootstrap-daterangepicker/daterangepicker.js') }}"></script>#}
+{#<script src="{{ asset('bundles/vincetbootstrapform/bootstrap-chosen/public/chosen.jquery.min.js') }}"></script>#}
+{#<script src="{{ asset('bundles/vincetbootstrapform/bootstrap-slider/js/bootstrap-slider.js') }}"></script>#}
+{#<script src="{{ asset('bundles/vincetbootstrapform/knob/js/jquery.knob.js') }}"></script>#}
+
+<script src="{{ asset('bundles/vincetbootstrapform/vendor/chosen/chosen.jquery.js') }}"></script>
+<script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrapSlider/js/slider.js') }}"></script>
+<script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
+<script src="{{ asset('bundles/vincetbootstrapform/vendor/moment/min/moment.min.js') }}"></script>
+<script src="{{ asset('bundles/vincetbootstrapform/vendor/moment/locale/en-gb.js') }}"></script>
+<script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+<script src="{{ asset('bundles/vincetbootstrapform/vendor/jquery-knob/js/jquery.knob.js') }}"></script>
+<script src="{{ asset('bundles/vincetbootstrapform/vendor/jquery-minicolors/jquery.minicolors.min.js') }}"></script>
+<script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js') }}"></script>
+
+<script src="{{ asset('bundles/vincetbootstrapform/js/bootstrap-forms.js') }}"></script>
+</body>
+</html>
+
