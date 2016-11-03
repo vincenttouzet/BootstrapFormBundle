@@ -61,16 +61,20 @@ Include stylesheets and javascripts:
 ```twig
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/bootstrap-daterangepicker/daterangepicker.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-daterangepicker/daterangepicker.css') }}">
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{asset('bundles/vincetbootstrapform/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('bundles/vincetbootstrapform/bootstrap-daterangepicker/date.js')}}"></script>
-    <script src="{{asset('bundles/vincetbootstrapform/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-    <script src="{{asset('bundles/vincetbootstrapform/js/bootstrap-forms.js')}}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/moment/min/moment.min.js') }}"></script>
+    {% if app.request.locale != 'en' %}
+        <script src="{{ asset('bundles/vincetbootstrapform/vendor/moment/locale/'~app.request.locale~'.js') }}"></script>
+    {% endif %}
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/js/bootstrap-forms.js') }}"></script>
 {% endblock %}
 ```
 

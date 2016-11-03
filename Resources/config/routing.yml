@@ -33,5 +33,5 @@ vincet_bootstrap_form_bootstrap_slider_demo:
 
 vincet_bootstrap_form_timepicker_demo:
     path: /timepicker
-    defaults: { _controller: "VinceTBootstrapFormBundle:DateTimePickerDemo:demo" }
+    defaults: { _controller: "VinceTBootstrapFormBundle:TimePickerDemo:demo" }
 

@@ -52,17 +52,20 @@ Include stylesheets and javascripts:
 ```twig
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/bootstrap-datepicker/css/datepicker.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{asset('bundles/vincetbootstrapform/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('bundles/vincetbootstrapform/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
     <!-- Include translation for the language you choose (optionnal if you're using 'en' language) -->
-    <script src="{{asset('bundles/vincetbootstrapform/bootstrap-datepicker/js/locales/bootstrap-datepicker.fr.js')}}"></script>
-    <script src="{{asset('bundles/vincetbootstrapform/js/bootstrap-forms.js')}}"></script>
+    {% if app.request.locale != 'en' %}
+        <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-datepicker/dist/locales/bootstrap-datepicker.'~app.request.locale~'.min.js') }}"></script>
+    {% endif %}
+    <script src="{{ asset('bundles/vincetbootstrapform/js/bootstrap-forms.js') }}"></script>
 {% endblock %}
 ```
 

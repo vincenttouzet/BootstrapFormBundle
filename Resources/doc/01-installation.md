@@ -6,7 +6,7 @@ Installation
 
 Use composer to install this bundle (using the master version)
 ```
-php composer.phar require vincet/bootstrap-form-bundle
+composer require vincet/bootstrap-form-bundle
 ```
 
 2) Register the bundle
@@ -27,7 +27,10 @@ In app/config/config.yml add:
 twig:
     form:
         resources:
-            - 'VinceTBootstrapFormBundle:Form:fields.html.twig'
+            # For bootstrap 2
+            #- 'VinceTBootstrapFormBundle:Form:fields.html.twig'
+            # For bootstrap 3
+            - 'VinceTBootstrapFormBundle:Form:bootstrap3.html.twig.html.twig'
 
 ```
 
@@ -37,3 +40,16 @@ twig:
 ```
 php app/console assets:install
 ```
+5) Optionnal : import demo routes
+---------------------------------
+
+The bundle comes with demo controller to show examples for the different form types.
+
+```yml
+#app/config/routing_dev.yml
+vincet_bootstrap_form:
+    resource: "@VinceTBootstrapFormBundle/Resources/config/routing.yml"
+    prefix: /_bootstrap-form
+```
+
+Then you can access examples on http://localhost/app_dev.php/_bootstrap-form/chosen

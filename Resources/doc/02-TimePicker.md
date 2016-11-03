@@ -36,15 +36,16 @@ Include stylesheets and javascripts:
 ```twig
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/bootstrap-timepicker/css/bootstrap-timepicker.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-timepicker/css/timepicker.css') }}">
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{asset('bundles/vincetbootstrapform/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('bundles/vincetbootstrapform/bootstrap-timepicker/js/bootstrap-timepicker.js')}}"></script>
-    <script src="{{asset('bundles/vincetbootstrapform/js/bootstrap-forms.js')}}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/js/bootstrap-forms.js') }}"></script>
 {% endblock %}
 ```
 

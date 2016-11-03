@@ -42,13 +42,13 @@ Include stylesheets and javascripts:
 ```twig
 {% block stylesheets %}
     {{ parent() }}
-    {* You have to download jquery-minicolors and put CSS includes here *}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/jquery-minicolors/jquery.minicolors.css') }}">
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    {* You have to download jquery-minicolors and put JS includes here *}
-    <script src="{{asset('bundles/vincetbootstrapform/js/bootstrap-forms.js')}}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/jquery-minicolors/jquery.minicolors.min.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/js/bootstrap-forms.js') }}"></script>
 {% endblock %}
 ```
 

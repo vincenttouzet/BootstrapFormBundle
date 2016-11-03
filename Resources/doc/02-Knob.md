@@ -53,10 +53,16 @@ class DemoType extends AbstractType
 
 Include stylesheets and javascripts:
 ```twig
+{% block stylesheets %}
+    {{ parent() }}
+    <!-- CSS fix (When using bootstrap_3_layout.html.twig form_theme input is not placed in the center without this fix) -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/css/fix.css') }}">
+{% endblock %}
+
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{asset('bundles/vincetbootstrapform/knob/js/jquery.knob.js')}}"></script>
-    <script src="{{asset('bundles/vincetbootstrapform/js/bootstrap-forms.js')}}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/jquery-knob/js/jquery.knob.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/js/bootstrap-forms.js') }}"></script>
 {% endblock %}
 ```
 

@@ -112,9 +112,14 @@
 <script src="{{ asset('bundles/vincetbootstrapform/vendor/chosen/chosen.jquery.js') }}"></script>
 <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrapSlider/js/slider.js') }}"></script>
 <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+{% if app.request.locale != 'en' %}
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-datepicker/dist/locales/bootstrap-datepicker.'~app.request.locale~'.min.js') }}"></script>
+{% endif %}
 <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
 <script src="{{ asset('bundles/vincetbootstrapform/vendor/moment/min/moment.min.js') }}"></script>
-<script src="{{ asset('bundles/vincetbootstrapform/vendor/moment/locale/en-gb.js') }}"></script>
+{% if app.request.locale != 'en' %}
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/moment/locale/'~app.request.locale~'.js') }}"></script>
+{% endif %}
 <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 <script src="{{ asset('bundles/vincetbootstrapform/vendor/jquery-knob/js/jquery.knob.js') }}"></script>
 <script src="{{ asset('bundles/vincetbootstrapform/vendor/jquery-minicolors/jquery.minicolors.min.js') }}"></script>

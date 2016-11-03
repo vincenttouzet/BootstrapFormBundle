@@ -40,17 +40,18 @@ Include stylesheets and javascripts:
 ```twig
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/bootstrap-slider/css/slider.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/vendor/bootstrapSlider/css/slider.css') }}">
     <!-- CSS fix (in sonata admin 2.2 the input is dsplayed without this fix) -->
-    <link rel="stylesheet" type="text/css" href="{{asset('bundles/vincetbootstrapform/css/fix.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/vincetbootstrapform/css/fix.css') }}">
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{asset('bundles/vincetbootstrapform/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('bundles/vincetbootstrapform/bootstrap-slider/js/bootstrap-slider.js')}}"></script>
-    <script src="{{asset('bundles/vincetbootstrapform/js/bootstrap-forms.js')}}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/vendor/bootstrapSlider/js/slider.js') }}"></script>
+    <script src="{{ asset('bundles/vincetbootstrapform/js/bootstrap-forms.js') }}"></script>
 {% endblock %}
 ```
 

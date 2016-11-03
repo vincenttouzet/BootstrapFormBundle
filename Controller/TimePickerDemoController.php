@@ -13,7 +13,7 @@ namespace VinceT\BootstrapFormBundle\Controller;
 
 use VinceT\BootstrapFormBundle\Form\Type\TimePickerType;
 
-class KnobDemoController extends DemoController
+class TimePickerDemoController extends DemoController
 {
     public function getFormType()
     {
