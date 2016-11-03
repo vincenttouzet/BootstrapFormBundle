@@ -1,3 +1,7 @@
 .sonata-bc .slider input {
     display: none;
 }
+
+.knob.form-control {
+    display: inline !important;
+}
